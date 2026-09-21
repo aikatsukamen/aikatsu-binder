@@ -175,6 +175,7 @@
   .pocket::after {
     content: '';
     position: absolute;
+    z-index: 1;
     inset: 1.7em 0.45em 0.5em;
     border-radius: 0.5em;
     pointer-events: none;
@@ -196,11 +197,13 @@
     border: 0;
     padding: 0;
     background: none;
+  }
+  .pocket-art {
     transition:
       opacity 0.2s,
       filter 0.2s;
   }
-  .pocket-card.is-missing {
+  .pocket-card.is-missing .pocket-art {
     opacity: 0.4;
     filter: saturate(0.5);
   }
@@ -224,7 +227,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .pocket-card {
+  .pocket-art {
     transition: none;
   }
 }

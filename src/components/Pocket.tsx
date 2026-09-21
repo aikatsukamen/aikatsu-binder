@@ -66,13 +66,16 @@ export function Pocket({ card, onTap, onLongPress }: Props) {
           onTap(card);
         }}
       >
-        <CardImage card={card} className="absolute inset-0 size-full" eager />
+        {/* 未所持の薄表示は画像だけにかけ、バッジは薄くしない */}
+        <span className="pocket-art absolute inset-0">
+          <CardImage card={card} className="size-full" eager />
+        </span>
         {entry.own > 0 && (
-          <span className="absolute top-[0.2em] right-[0.2em] rounded-full border-[0.12em] border-white bg-pink px-[0.45em] text-[0.95em] leading-[1.35] font-extrabold text-white shadow">
+          <span className="absolute top-[0.2em] right-[0.2em] z-[2] rounded-full border-[0.12em] border-white bg-pink px-[0.45em] text-[0.95em] leading-[1.35] font-extrabold text-white shadow">
             ×{entry.own}
           </span>
         )}
-        <span className="absolute right-[0.25em] bottom-[18%] flex flex-col items-end gap-[0.15em] text-[1.35em]">
+        <span className="absolute right-[0.25em] bottom-[18%] z-[2] flex flex-col items-end gap-[0.15em] text-[1.35em]">
           {entry.want > 0 && <span className="glow-badge is-want">求{entry.want}</span>}
           {entry.give > 0 && <span className="glow-badge is-give">出{entry.give}</span>}
         </span>
