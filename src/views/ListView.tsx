@@ -67,7 +67,7 @@ function Row({ card, onOpen }: { card: Card; onOpen: () => void }) {
           <span className="block truncate text-xs opacity-70">{card.category}</span>
         </span>
       </button>
-      <div className="flex w-full justify-between gap-2 md:w-auto md:justify-end md:gap-4">
+      <div className="grid w-full grid-cols-3 gap-1 md:flex md:w-auto md:gap-4">
         {(
           [
             ['own', '所持', 999],
@@ -75,7 +75,7 @@ function Row({ card, onOpen }: { card: Card; onOpen: () => void }) {
             ['want', '求', 999],
           ] as const
         ).map(([field, label, max]) => (
-          <div key={field} className="flex items-center gap-1">
+          <div key={field} className="flex flex-col items-center gap-0.5 md:flex-row md:gap-1.5">
             <span className="text-xs whitespace-nowrap opacity-70">{label}</span>
             <Stepper label={label} value={e[field]} max={max} onChange={set(field)} size="sm" />
           </div>

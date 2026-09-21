@@ -10,7 +10,7 @@ interface Props {
 }
 
 export function Stepper({ label, value, onChange, max = 999, hint, size = 'md' }: Props) {
-  const btn = size === 'md' ? 'size-11 rounded-2xl text-xl' : 'size-8 rounded-xl text-base';
+  const btn = size === 'md' ? 'size-11 rounded-2xl text-xl' : 'size-7 rounded-lg text-sm';
   return (
     <div className="flex items-center gap-3">
       {size === 'md' && (
@@ -19,7 +19,11 @@ export function Stepper({ label, value, onChange, max = 999, hint, size = 'md' }
           {hint && <div className="text-xs opacity-70">{hint}</div>}
         </div>
       )}
-      <div className="flex items-center gap-1.5" role="group" aria-label={label}>
+      <div
+        className={`flex shrink-0 items-center ${size === 'md' ? 'gap-1.5' : 'gap-1'}`}
+        role="group"
+        aria-label={label}
+      >
         <button
           type="button"
           className={`${btn} grid place-items-center bg-pink/20 text-pink-d disabled:opacity-30`}
@@ -38,7 +42,7 @@ export function Stepper({ label, value, onChange, max = 999, hint, size = 'md' }
           onChange={(e) => onChange(Number(e.target.value))}
           onFocus={(e) => e.target.select()}
           aria-label={label}
-          className={`${size === 'md' ? 'w-12 text-xl' : 'w-9 text-base'} [appearance:textfield] bg-transparent text-center font-extrabold outline-none [&::-webkit-inner-spin-button]:appearance-none`}
+          className={`${size === 'md' ? 'w-12 text-xl' : 'w-8 text-base'} [appearance:textfield] bg-transparent text-center font-extrabold outline-none [&::-webkit-inner-spin-button]:appearance-none`}
         />
         <button
           type="button"
