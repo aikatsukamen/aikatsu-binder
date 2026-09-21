@@ -1,6 +1,6 @@
 import { useRef, useState, type ReactNode } from 'react';
 import { Icon } from '../components/Icon';
-import { EXPORT_REMIND_DAYS, needsBackup } from '../domain/backup';
+// import { EXPORT_REMIND_DAYS, needsBackup } from '../domain/backup';
 import { Sheet } from '../components/Sheet';
 import { reloadMaster, useIndex } from '../data/master';
 import {
@@ -151,11 +151,6 @@ export function SettingsView() {
           <p className="text-sm opacity-80">
             データはこのブラウザ内にだけ保存されます。機種変更などに備えて、ときどきバックアップファイルをエクスポートしてください。
           </p>
-          {needsBackup(lastExportAt, entryCount) && (
-            <p className="rounded-2xl bg-want/20 px-3 py-2 text-sm">
-              最後の書き出しから{EXPORT_REMIND_DAYS}日以上たっています。
-            </p>
-          )}
           <Field label="登録済みのカード" hint={`最終出力: ${fmt(lastExportAt)}`}>
             <span className="font-extrabold tabular-nums">{entryCount}件</span>
           </Field>
