@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import type { VersionMeta, WorkMeta } from '../domain/types';
 import { shortWork } from '../domain/versions';
-import { useSettings } from '../store/settings';
+// import { useSettings } from '../store/settings';
 import { Icon } from './Icon';
 import { Sheet } from './Sheet';
 
@@ -15,7 +15,7 @@ interface Props {
 
 export function VersionPicker({ open, onClose, works, current, onSelect }: Props) {
   const [query, setQuery] = useState('');
-  const recent = useSettings((s) => s.recentVersions);
+  // const recent = useSettings((s) => s.recentVersions);
   const all = useMemo(() => works.flatMap((w) => w.versions), [works]);
   const byId = useMemo(() => new Map(all.map((v) => [v.versionId, v])), [all]);
   const currentWork = current ? byId.get(current)?.work : undefined;
