@@ -70,13 +70,13 @@ function CardEditor({ card }: { card: Card }) {
         <div className="mt-4 space-y-3">
           <Stepper label="所持" value={e.own} onChange={set('own')} />
           <Stepper
-            label="うち出せる"
+            label="出"
             hint="交換に出してよい枚数"
             value={e.give}
             max={e.own}
             onChange={set('give')}
           />
-          <Stepper label="求める" hint="交換でほしい枚数" value={e.want} onChange={set('want')} />
+          <Stepper label="求" hint="交換でほしい枚数" value={e.want} onChange={set('want')} />
         </div>
       </div>
     </div>

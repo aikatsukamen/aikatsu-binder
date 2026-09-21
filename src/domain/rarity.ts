@@ -16,7 +16,7 @@ const RARITY_TABLE: Record<string, { abbr: string; tier: number }> = {
   アンコールレア: { abbr: 'ER', tier: 3 },
 };
 
-/** レアリティ不明（無印の一部など）。最下位扱い */
+/** レアリティ不明。最下位扱い */
 export const UNKNOWN_TIER = -1;
 
 export function resolveRarity(

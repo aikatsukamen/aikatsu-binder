@@ -43,22 +43,18 @@ export function VersionPicker({ open, onClose, works, current, onSelect }: Props
           {withWork && <span className="mr-1.5 text-xs opacity-75">{shortWork(v.work)}</span>}
           {v.title}
         </span>
-        {!v.isRegular && (
-          <span className="rounded-md bg-pink/20 px-1.5 text-xs text-pink-d">特別</span>
-        )}
-        <span className="text-xs tabular-nums opacity-70">{v.count}枚</span>
       </button>
     </li>
   );
 
   return (
-    <Sheet open={open} onClose={onClose} title="弾を選ぶ">
+    <Sheet open={open} onClose={onClose} title="弾選択">
       <label className="mb-4 flex items-center gap-2 rounded-2xl bg-white/70 px-3 py-2 text-page-ink">
         <Icon name="search" className="size-4 opacity-60" />
         <input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="2014シリーズ、スターズ 4弾…"
+          placeholder="表示したい弾の名前を入力"
           className="min-w-0 flex-1 bg-transparent outline-none"
           aria-label="弾を検索"
         />
@@ -74,7 +70,7 @@ export function VersionPicker({ open, onClose, works, current, onSelect }: Props
         </ul>
       ) : (
         <>
-          {recent.length > 0 && (
+          {/* {recent.length > 0 && (
             <section className="mb-4">
               <h3 className="mb-1 px-1 text-sm opacity-75">最近開いた弾</h3>
               <ul className="space-y-0.5">
@@ -84,7 +80,7 @@ export function VersionPicker({ open, onClose, works, current, onSelect }: Props
                 })}
               </ul>
             </section>
-          )}
+          )} */}
           <div className="space-y-2">
             {works.map((w) => (
               <details
@@ -94,7 +90,7 @@ export function VersionPicker({ open, onClose, works, current, onSelect }: Props
               >
                 <summary className="flex cursor-pointer list-none items-center gap-2 px-3 py-3 font-extrabold [&::-webkit-details-marker]:hidden">
                   <span className="flex-1">{w.work}</span>
-                  <span className="text-xs font-medium opacity-70">{w.versions.length}弾</span>
+                  <span className="text-xs font-medium opacity-70"></span>
                   <Icon
                     name="chevronDown"
                     className="size-4 transition-transform group-open:rotate-180"

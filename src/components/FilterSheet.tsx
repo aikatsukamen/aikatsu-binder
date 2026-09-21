@@ -89,12 +89,12 @@ export function FilterSheet({ open, onClose, categories, rarities }: Props) {
             type="search"
             value={f.query}
             onChange={(e) => set({ query: e.target.value })}
-            placeholder="フリル、E1-05"
+            placeholder="表示したいカード名など"
             className="w-full rounded-2xl bg-white/70 px-4 py-2.5 text-page-ink outline-none"
           />
         </section>
         <section>
-          <h3 className="mb-2 font-extrabold">持っているか</h3>
+          <h3 className="mb-2 font-extrabold">カード所持状態</h3>
           <div className="flex flex-wrap gap-2">
             {OWNED.map(([v, label]) => (
               <Chip key={v} active={f.owned === v} onClick={() => set({ owned: v })}>

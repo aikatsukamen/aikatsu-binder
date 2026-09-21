@@ -82,7 +82,7 @@ export function BinderView({ works, versionId, page, onSelectVersion }: Props) {
             className="mb-1 flex shrink-0 items-center gap-1 rounded-full border-2 border-pink bg-cream px-3 py-1.5 text-sm font-extrabold text-pink-d aria-pressed:bg-pink-d aria-pressed:text-white"
           >
             <Icon name="tapPlus" className="size-4" />
-            登録モード
+            所持管理
           </button>
         }
       />

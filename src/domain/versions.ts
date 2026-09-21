@@ -40,4 +40,4 @@ export function defaultVersionId(works: WorkMeta[]): string | undefined {
 
 /** 表示用の短い作品名 */
 export const shortWork = (work: string) =>
-  work.replace(/^アイカツ！?/, '').replace(/！$/, '') || '無印';
+  work.replace(/^アイカツ！?/, '').replace(/！$/, '') || '初代';
