@@ -147,16 +147,16 @@ export function SettingsView() {
           </Field>
         </Section>
 
-        <Section title="所持データ">
+        <Section title="データ管理">
           <p className="text-sm opacity-80">
-            データはこの端末のブラウザにだけ保存されます。機種変更やブラウザのデータ削除に備えて、ときどき書き出してください。
+            データはこのブラウザ内にだけ保存されます。機種変更などに備えて、ときどきバックアップファイルをエクスポートしてください。
           </p>
           {needsBackup(lastExportAt, entryCount) && (
             <p className="rounded-2xl bg-want/20 px-3 py-2 text-sm">
               最後の書き出しから{EXPORT_REMIND_DAYS}日以上たっています。
             </p>
           )}
-          <Field label="登録済みのカード" hint={`最後の書き出し: ${fmt(lastExportAt)}`}>
+          <Field label="登録済みのカード" hint={`最終出力: ${fmt(lastExportAt)}`}>
             <span className="font-extrabold tabular-nums">{entryCount}件</span>
           </Field>
           <div className="flex flex-wrap gap-2">
@@ -166,7 +166,7 @@ export function SettingsView() {
               className="flex items-center gap-1.5 rounded-full bg-pink px-5 py-2.5 font-extrabold text-white"
             >
               <Icon name="download" className="size-4" />
-              書き出す
+              エクスポート
             </button>
             <button
               type="button"
@@ -174,7 +174,7 @@ export function SettingsView() {
               className="flex items-center gap-1.5 rounded-full border-2 border-pink px-5 py-2 font-extrabold text-pink-d"
             >
               <Icon name="upload" className="size-4" />
-              読み込む
+              インポート
             </button>
             <input
               ref={fileRef}
@@ -192,7 +192,7 @@ export function SettingsView() {
         </Section>
 
         <Section title="カード情報">
-          <Field label="データの更新日時" hint="aikatsu-card-data から取得しています">
+          <Field label="データの更新日時" hint="">
             <span>{index.status === 'ready' ? fmt(index.data.index.generated_at) : '—'}</span>
           </Field>
           <button
